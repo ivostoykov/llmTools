@@ -1,5 +1,3 @@
-Here is a refined version of the README file, written in clear and easy-to-understand English for non-native English speakers:
-
 # LLM Tools
 
 
