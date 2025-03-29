@@ -42,8 +42,17 @@ def handle_all(path):
                 result = fetch_web_page_content(data)
                 return jsonify({"status": "success", "message": "Page content fetched.", "result": result}), 200
 
+            case "web_search":
+                from websearch import web_search
+                data = request.get_json() if request.is_json else request.args.to_dict()
+                result = web_search(data)
+                return jsonify({"status": "success", "message": "Search completed.", "result": result}), 200
+
             case _:
-                return jsonify({"status": "error", "message": "Function not found"}), 404
+                from websearch import web_search
+                result = web_search({ "query": func_name })
+                return jsonify({"status": "success", "message": f"There is no tool {func_name} available. Instead a web search result is returned", "result": result}), 200
+                # return jsonify({"status": "error", "message": "Function not found"}), 404
 
         return jsonify({"status": "success", "result": result})
 
