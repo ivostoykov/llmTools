@@ -1,38 +1,52 @@
-# llmTools
-This is an example server that can be used with localAI browser extension to extend the LLM with user defined functioinality. It is safe to use it locally if you don't want to bother creating your own.
+Here is a refined version of the README file, written in clear and easy-to-understand English for non-native English speakers:
 
-> [!NOTE]
-> Python is required
+# LLM Tools
+
+
+This is an example server that can be used with LocalAI browser extension to extend the Large Language Model (LLM) with user-defined functionality. It is safe to use locally if you dont want to create your own.
+
+> [!Note]
+> Python is required to run this server.
 
 # Installation
 
-1. Open a terminal wherever you want to use it, and execute the following command:
+1. Open a terminal in any location where you want to use it.
+2. Execute the following command to clone the repository:
 ```
 git clone https://github.com/ivostoykov/llmTools.git
 ```
-This will create `llmTools` dir where your terminal is onpen into. As there are no dependencies the location generally doesn't matter, but better off to be a private place.
 
-2. Move into the `llmTools` dir:
+This will create an `llmTools` directory where your terminal is opened.
+
+3. Move into the `llmTools` directory:
+
 ```
 cd ./llmTools
 ```
 
-3. Recreate the needed environment and install the needed libraries:
+4. Create a new virtual environment and install the required libraries:
+
 ```
 python3 -m venv venv
 source venv/bin/activate
 pip install -U pip
 pip install -U -r requirements.txt
 ```
-All libraries are standard so there are no expected problems here. If any please report on [Issues](https://github.com/ivostoykov/llmTools/issues).
 
-The server and the tools are in the `llmTools/server` dir. `main.py` is the entry point. There are two additional helpers facilitating the track of any problems that occur. Those are `utils.py` and `logging_config.py`.
+All libraries are standard, so there should be no issues here. If you encounter any problems, please report them on the [Issues](https://github.com/ivostoykov/llmTools/issues) page.
 
-`.env` is where the variables needed are located.
-While running the server various log records are stored into `storeapi.log` file. This is the first place to look at when something goes wrong.  It need manually clean periodically.
+## Server and Tools
 
-There it comes the tools - each one is in own separate file. Whenever a new one is added it must be registered into `main.py` in `def handle_all(path):` as a separate `case` block.
+The server and tools are located in the `llmTools/server` directory. The main entry point is `main.py`. There are two additional helpers: `utils.py` and `logging_config.py`.
 
-# What is in there
-* `calculate_date_time` - A function calculating date and time by given an offset.
-* `fetch_web_page_content` - Try to fetch a given url if possible. Please note that there are sites that block requests suspected as non human ones and may ban your IP.
+* `.env` file contains variables needed for the server to run.
+* When running the server, log records are stored in the `storeapi.log` file. This file should be checked first if something goes wrong. It needs to be cleaned manually periodically.
+
+## Tools
+
+Each tool is located in its own separate file. To add a new tool, it must be registered in `main.py` by adding a new case block to the `handle_all(path)` function.
+
+* `calculate_date_time`: A function that calculates date and time given an offset.
+* `fetch_web_page_content`: Attempts to fetch the content of a given URL if possible. Note that some sites may block requests suspected as non-human and may ban your IP.
+
+I hope this version is more readable and helpful for non-native English speakers!
