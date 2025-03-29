@@ -47,4 +47,4 @@ Each tool is located in its own separate file. To add a new tool, it must be reg
 * `calculate_date_time`: A function that calculates date and time given an offset.
 * `fetch_web_page_content`: Attempts to fetch the content of a given URL if possible. Note that some sites may block requests suspected as non-human and may ban your IP.
 
-I hope this version is more readable and helpful for non-native English speakers!
+
