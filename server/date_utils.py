@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
 def calculate_date_time(data):
-    input_str = data.get("input", "").lower().strip()
+    input_str = data.get("offset", "").lower().strip()
     if not input_str:
         raise ValueError("Missing or empty 'input'")
 

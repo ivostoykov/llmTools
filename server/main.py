@@ -49,10 +49,10 @@ def handle_all(path):
                 return jsonify({"status": "success", "message": "Search completed.", "result": result}), 200
 
             case _:
-                from websearch import web_search
-                result = web_search({ "query": func_name })
-                return jsonify({"status": "success", "message": f"There is no tool {func_name} available. Instead a web search result is returned", "result": result}), 200
-                # return jsonify({"status": "error", "message": "Function not found"}), 404
+                # from websearch import web_search
+                # result = web_search({ "query": func_name })
+                # return jsonify({"status": "success", "message": f"There is no tool {func_name} available. Instead a web search result is returned", "result": result}), 200
+                return jsonify({"status": "error", "message": f"{func_name} Function not found"}), 404
 
         return jsonify({"status": "success", "result": result})
 

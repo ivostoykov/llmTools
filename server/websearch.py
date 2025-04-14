@@ -9,10 +9,19 @@ def web_search(data):
     if not query:
         raise ValueError("Missing 'query' parameter")
 
-    base_url = os.getenv("WEB_SEARCH_URL", "http://localhost:7999/search?q={query}&format=json")
-    url = base_url.replace("{query}", requests.utils.quote(query))
+    params = { "q": query, "format": "json" }
 
-    res = requests.get(url, timeout=10)
+    if "categories" in data:
+        params["categories"] = data["categories"]
+    if "language" in data:
+        params["language"] = data["language"]
+    if "time_range" in data:
+        params["time_range"] = data["time_range"]
+
+    base_url = os.getenv("WEB_SEARCH_URL", "http://localhost:7999/search")
+    url = base_url.split('?')[0]
+
+    res = requests.get(url, params=params, timeout=10)
     res.raise_for_status()
 
     results = res.json().get("results", [])
